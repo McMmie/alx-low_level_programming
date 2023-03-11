@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include "main.h"
+
+/**
+ * main - prints all argument recieved
+ * @argc: argument counter
+ * @argv: pointer to arrays of arguments
+ * Return: 0
+ */
+
+int main(int argc, char *argv[])
+{
+	int arg;
+
+	if (argc > 0)
+	{
+		for (arg = 0; arg < argc; arg++)
+		{
+			printf("%s\n", argv[arg]);
+		}
+	}
+	else
+	{
+		printf("%s\n", argv[argc]);
+	}
+
+	return (0);
+}
