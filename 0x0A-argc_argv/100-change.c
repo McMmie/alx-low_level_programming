@@ -1,20 +1,5 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * main - prints minimum coins to make change for an amount of money
@@ -35,8 +20,7 @@ int main(int argc, char *argv[])
 	}
 	if (argv[1][0] == '-')
 	{
-		_putchar('0');
-		_putchar('\n');
+		printf("0\n");
 		return (0);
 	}
 	i = atoi(argv[1]);
