@@ -1,13 +1,12 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+
 /**
  * _strlen - returns the length of a string
  * @s: string pointer
  * Return: length of string
  */
-/*
+
 int _strlen(char *s)
 {
 	int i = 0;
@@ -20,7 +19,7 @@ int _strlen(char *s)
 	}
 
 		return (i);
-}*/
+}
 
 /**
  * string_nconcat - concatenates strings
@@ -34,13 +33,12 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	int a, b, c, i = strlen(s1);
+	int a, b, c, i = _strlen(s1);
 	c = n;
 
 	ptr = malloc(sizeof(char) * (i + n + 1));
 	if (ptr == NULL)
 	{
-		printf("memory not allocated");
 		free(ptr);
 		return (NULL);
 	}
