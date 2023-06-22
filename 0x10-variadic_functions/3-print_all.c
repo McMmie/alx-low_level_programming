@@ -2,45 +2,72 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+struct print 
+{
+	char alpha;
+	void (*func)(va_list);
+};
+
+void _char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+void _int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+void _double(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+void _string(va_list args)
+{
+	char *val = va_arg(args, char *);
+	if (val == NULL)
+	{
+		printf("(nil)");
+	}
+	printf("%s", val);
+}
+
+
+/**
+ * print_all - prints anything
+ * @format: list of types of arguments
+ *
+ * Return:nothing
+ */
 void print_all(const char * const format, ...)
 {
-	const char *ptr  = format;
+	int i, j;
+	char *separator = "";
+	va_list args;
 
-	va_list arg; /*declaring the list of arguments*/
+	struct print type[] = { {'c', _char},
+			{'i', _int},
+			  {'f', _double},
+			  {'s', _string},
+			{'\0', NULL} };
 
-	va_start(arg, format); /*initialization*/
+	va_start(args, format);
 
-	while (*ptr != '\0')
+	i = 0;
+	while (format[i] != '\0')
 	{
-		if (*ptr == 'c')
+		j = 0;
+		while (type[j].alpha != '\0')
 		{
-			char val = va_arg(arg, int);
-		       printf("%c, ", val);
-		}
-		else if (*ptr == 'i')
-		{
-			int val = va_arg(arg, int);
-			printf("%d, ", val);
-		}
-		else if (*ptr == 'f')
-		{
-			double val = va_arg(arg, double);
-			printf("%f, ", val);
-		}
-		else if (*ptr == 's')
-		{
-			char *val = va_arg(arg, char *);
-
-			if (val == NULL)
+			if (format[i] == type[j].alpha)
 			{
-				printf("(nil)");
-			}
-			else
-				printf("%s ", val);
+				printf("%s", separator);
+				type[j].func(args);
+				separator = ", ";
+				break;
+			 }
+			j++;
 		}
-		ptr++;
+		i++;
 	}
-	va_end(arg);
-
+	va_end(args);
 	putchar('\n');
 }
