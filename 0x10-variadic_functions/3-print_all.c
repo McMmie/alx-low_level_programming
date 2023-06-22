@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
- * _char - prints characters
+ * _char - prints characters present
  * @args: va_list
  *
  * Return: nothing
@@ -39,7 +39,7 @@ void _double(va_list args)
 }
 
 /**
- * _string - prints string
+ * _string - prints strings
  * @args: va_list
  *
  * Return: nothing
@@ -60,7 +60,7 @@ void _string(va_list args)
  * print_all - prints anything
  * @format: list of types of arguments
  *
- * Return:nothing
+ * Return: nothing
  */
 
 void print_all(const char * const format, ...)
