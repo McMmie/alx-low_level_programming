@@ -2,27 +2,53 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-struct print 
-{
-	char alpha;
-	void (*func)(va_list);
-};
+/**
+ * _char - prints characters
+ * @args: va_list
+ *
+ * Return: nothing
+ */
 
 void _char(va_list args)
 {
 	printf("%c", va_arg(args, int));
 }
+
+/**
+ * _int - prints integers
+ * @args: va_list
+ *
+ * Return: nothing
+ */
+
 void _int(va_list args)
 {
 	printf("%d", va_arg(args, int));
 }
+
+/**
+ * _double - prints float values
+ * @args: va_list
+ *
+ * Return: nothing
+ */
+
 void _double(va_list args)
 {
 	printf("%f", va_arg(args, double));
 }
+
+/**
+ * _string - prints string
+ * @args: va_list
+ *
+ * Return: nothing
+ */
+
 void _string(va_list args)
 {
 	char *val = va_arg(args, char *);
+
 	if (val == NULL)
 	{
 		printf("(nil)");
@@ -30,23 +56,23 @@ void _string(va_list args)
 	printf("%s", val);
 }
 
-
 /**
  * print_all - prints anything
  * @format: list of types of arguments
  *
  * Return:nothing
  */
+
 void print_all(const char * const format, ...)
 {
 	int i, j;
 	char *separator = "";
 	va_list args;
 
-	struct print type[] = { {'c', _char},
+	print type[] = { {'c', _char},
 			{'i', _int},
-			  {'f', _double},
-			  {'s', _string},
+			{'f', _double},
+			{'s', _string},
 			{'\0', NULL} };
 
 	va_start(args, format);
@@ -63,7 +89,7 @@ void print_all(const char * const format, ...)
 				type[j].func(args);
 				separator = ", ";
 				break;
-			 }
+			}
 			j++;
 		}
 		i++;
