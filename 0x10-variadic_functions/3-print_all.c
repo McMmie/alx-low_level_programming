@@ -88,7 +88,6 @@ void print_all(const char * const format, ...)
 				printf("%s", separator);
 				type[j].func(args);
 				separator = ", ";
-				break;
 			}
 			j++;
 		}
