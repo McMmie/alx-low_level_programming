@@ -24,8 +24,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	}
 	for (i = 0; i < j; i++)
 	{
-		int num = va_arg(print, const unsigned int);
-		if (i == (j - 1))
+		const int num = va_arg(print, const unsigned int);
+		if (i == j - 1)
 		{
 			printf("%d\n", num);
 		}
