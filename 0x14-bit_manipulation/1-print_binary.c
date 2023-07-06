@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * print_binary - prints the binary represantation of a number
@@ -10,25 +9,25 @@
 
 void print_binary(unsigned long int n)
 {
-	int i = 0;
-	unsigned int tmp = n;
-	char digit;
+	int i = sizeof(unsigned long int) * 8 - 1;
+	int flag = 0;
 
-	if (n == 0)
+	while (i >= 0)
+	{
+		if ((n >> i) & 1)
+		{
+			_putchar('1');
+			flag = 1;
+		}
+		else if (flag)
+		{
+			_putchar('0');
+		}
+
+		i--;
+	}
+	if (!flag)
 	{
 		_putchar('0');
-	}
-
-	while (tmp > 0)
-	{
-		tmp >>= 1;
-		i++;
-	}
-
-	while (i > 0)
-	{
-		digit = ((n >> (i - 1)) & 1) + '0';
-		_putchar(digit);
-		i--;
 	}
 }
