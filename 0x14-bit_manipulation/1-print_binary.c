@@ -10,7 +10,8 @@
 
 void print_binary(unsigned long int n)
 {
-	int i, j, array[32];
+	int i = 0;
+	unsigned int tmp = n;
 	char digit;
 
 	if (n == 0)
@@ -18,17 +19,16 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 	}
 
-	i = 0;
-	while (n > 0)
+	while (tmp > 0)
 	{
-		array[i] = n & 1;
+		tmp >>= 1;
 		i++;
-		n >>= 1;
 	}
 
-	for (j = i - 1; j >= 0; j--)
+	while (i > 0)
 	{
-		digit = '0' + array[j];
+		digit = ((n >> (i - 1)) & 1) + '0';
 		_putchar(digit);
+		i--;
 	}
 }
