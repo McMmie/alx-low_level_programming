@@ -32,6 +32,7 @@ int main(int ac, char *av[])
 	{
 		exit_error("usage: cp file_from file_to", 97);
 	}
+
 	fd_from = open(f_from, O_RDONLY);
 	if (fd_from == -1)
 	{
@@ -48,15 +49,16 @@ int main(int ac, char *av[])
 	{
 		bytes_w = write(fd_dest, buff, bytes_r);
 		if (bytes_w == -1)
+		{
 			exit_error("Error: Can't write to file", 99);
-
+		}
 	}
 	if (bytes_r == -1)
 	{
 		exit_error("Error: Can't read from file", 98);
 	}
 
-	if ((close(fd_from) == -1) && (close(fd_dest) == -1))
+	if ((close(fd_from) == -1) || (close(fd_dest) == -1))
 	{
 		exit_error("Error: Can't close file decriptor", 100);
 	}
