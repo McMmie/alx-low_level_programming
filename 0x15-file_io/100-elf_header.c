@@ -47,33 +47,33 @@ void elf_header_info(const header *head)
 		switch (head->e_ident[7])
 		{
 			case 0:
-				printf("UNIX - System V");
+				printf("UNIX - System V\n");
 				break;
 			case 1:
-				printf("UNIX - HP-UX");
+				printf("UNIX - HP-UX\n");
 				break;
 			case 2:
-				printf("UNIX - NetBSD");
+				printf("UNIX - NetBSD\n");
 				break;
 			case 3:
-				printf("UNIX - Linux");
+				printf("UNIX - Linux\n");
 				break;
 			case 6:
-				printf("UNIX - Sun Solaris");
+				printf("UNIX - Sun Solaris\n");
 				break;
 			case 9:
-				printf("UNIX - FreeBSD");
+				printf("UNIX - FreeBSD\n");
 				break;
 			case 12:
-				printf("UNIX - OpenBSD");
+				printf("UNIX - OpenBSD\n");
 				break;
 			default:
-				printf("<Unknown>");
+				printf("<Unknown>\n");
 		}
 
 		printf("  ABI Version:                       %d\n",
 	head->e_ident[8]);
-	printf("  Type:                              ");
+	printf("  Type:                                   ");
 	switch (head->e_type)
 	{
 		case 0:
@@ -95,7 +95,7 @@ void elf_header_info(const header *head)
 			printf("<unknown: %x>\n", head->e_type);
 	}
 	printf("  Entry point address:				%#lx\n",
-	(unsigned long) head->e_entry);
+	head->e_entry);
 }
 
 /**
