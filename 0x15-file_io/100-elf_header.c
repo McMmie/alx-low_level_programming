@@ -27,6 +27,8 @@ void exit_error(const char *msg)
 void elf_header_info(const header *head)
 {
 	int i;
+
+	printf("Elf Header:\n")
 		printf("Magic: ");
 		for (i = 0; i < 16; i++)
 		{
@@ -34,16 +36,16 @@ void elf_header_info(const header *head)
 		}
 		 printf("\n");
 
-		printf("Class:				%s\n",
+		printf("Class:\t\t\t			%s\n",
 			(head->e_ident[4] == 1) ? "ELF32" :
 			((head->e_ident[4] == 2) ? "ELF64" : "Unknown"));
-		printf("Data:				%s\n",
+		printf("Data:\t\t\t				%s\n",
 			(head->e_ident[5] == 1) ?
 			"2's complement, Little Endian" : ((head->e_ident[5] == 2) ?
 			"2's complement, Big Endian" : "unknown"));
-		printf("Version:			%s\n",
+		printf("Version:\t\t\t			%s\n",
 			(head->e_ident[6] == 1) ? "1 (Current)" : "Unknown");
-		printf("OS/ABI:					");
+		printf("OS/ABI:\t\t\t					");
 		switch (head->e_ident[7])
 		{
 			case 0:
@@ -71,7 +73,7 @@ void elf_header_info(const header *head)
 				printf("<Unknown>\n");
 		}
 
-		printf("  ABI Version:                       %d\n",
+		printf("  ABI Version:\t\t\t                       %d\n",
 	head->e_ident[8]);
 	printf("  Type:                                   ");
 	switch (head->e_type)
@@ -94,7 +96,7 @@ void elf_header_info(const header *head)
 		default:
 			printf("<unknown: %x>\n", head->e_type);
 	}
-	printf("  Entry point address:				%#lx\n",
+	printf("  Entry point address:				%lx\n",
 	head->e_entry);
 }
 
