@@ -39,13 +39,13 @@ void elf_header_info(const header *head)
 		printf(" Class:                            %s\n",
 			(head->e_ident[4] == 1) ? "ELF32" :
 			((head->e_ident[4] == 2) ? "ELF64" : "Unknown"));
-		printf(" Data:                              %s\n",
+		printf(" Data:                             %s\n",
 			(head->e_ident[5] == 1) ?
 			"\t\t\t2's complement, Little Endian" : ((head->e_ident[5] == 2) ?
 			"2's complement, Big Endian" : "unknown"));
-		printf(" Version:                                %s\n",
+		printf(" Version:                              %s\n",
 			(head->e_ident[6] == 1) ? "1 (Current)" : "Unknown");
-		printf(" OS/ABI:                                  ");
+		printf(" OS/ABI:                                ");
 		switch (head->e_ident[7])
 		{
 			case 0:
@@ -96,7 +96,7 @@ void elf_header_info(const header *head)
 		default:
 			printf("<unknown: %x>\n", head->e_type);
 	}
-	printf("Entry point address:        0x%lx\n",
+	printf("Entry point address:             0x%lx\n",
 	head->e_entry);
 }
 
