@@ -28,7 +28,7 @@ void elf_header_info(const header *head)
 {
 	int i;
 
-	printf("Elf Header:\n")
+	printf("Elf Header:\n");
 		printf("Magic: ");
 		for (i = 0; i < 16; i++)
 		{
