@@ -28,7 +28,7 @@ void elf_header_info(const header *head)
 {
 	int i;
 
-	printf("Elf Header:\n");
+	printf("ELF Header:\n");
 		printf(" Magic: ");
 		for (i = 0; i < 16; i++)
 		{
@@ -36,16 +36,16 @@ void elf_header_info(const header *head)
 		}
 		 printf("\n");
 
-		printf(" Class:                               %s\n",
+		printf(" Class:                            %s\n",
 			(head->e_ident[4] == 1) ? "ELF32" :
 			((head->e_ident[4] == 2) ? "ELF64" : "Unknown"));
-		printf(" Data:                                 %s\n",
+		printf(" Data:                              %s\n",
 			(head->e_ident[5] == 1) ?
 			"\t\t\t2's complement, Little Endian" : ((head->e_ident[5] == 2) ?
 			"2's complement, Big Endian" : "unknown"));
-		printf(" Version:                                  %s\n",
+		printf(" Version:                                %s\n",
 			(head->e_ident[6] == 1) ? "1 (Current)" : "Unknown");
-		printf(" OS/ABI:                                    ");
+		printf(" OS/ABI:                                  ");
 		switch (head->e_ident[7])
 		{
 			case 0:
@@ -75,7 +75,7 @@ void elf_header_info(const header *head)
 
 		printf(" ABI Version:                       %d\n",
 	head->e_ident[8]);
-	printf(" Type:                                   ");
+	printf(" Type:                                ");
 	switch (head->e_type)
 	{
 		case 0:
