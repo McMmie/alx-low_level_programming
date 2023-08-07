@@ -11,7 +11,7 @@
  * Return: number of letters it could read and print
  */
 
-ssize_t read_text file(const char *filename, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file;
 	ssize_t num, status;
@@ -21,7 +21,7 @@ ssize_t read_text file(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	file = opn(filename, O_RDONLY);
+	file = open(filename, O_RDONLY);
 	if (file == -1)
 	{
 		return (0);
@@ -32,7 +32,7 @@ ssize_t read_text file(const char *filename, size_t letters)
 		close(file);
 		return (0);
 	}
-	num = read(file, bull, letters);
+	num = read(file, buff, letters);
 	if (num == -1)
 	{
 		close(file);
