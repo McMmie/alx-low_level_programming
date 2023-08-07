@@ -53,7 +53,7 @@ int main(int ac, char *av[])
 
 	while ((bytes_r = read(fd_from, buff, BUFFSIZE)) > 0)
 	{
-		bytes_w = write(fdd_dest, buff, bytes_r);
+		bytes_w = write(fd_dest, buff, bytes_r);
 		if (bytes_w == -1)
 			exit_error("Error: Can't write to file", 99);
 
@@ -63,7 +63,7 @@ int main(int ac, char *av[])
 		exit_error("Error: Can't read from file", 98);
 	}
 
-	if ((cose(fd_from) == -1) || (close(fd_dest) == -1))
+	if ((close(fd_from) == -1) || (close(fd_dest) == -1))
 	{
 		exit_error("Error: Can't close file decriptor", 100);
 	}
