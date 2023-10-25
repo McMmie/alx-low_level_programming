@@ -3,6 +3,7 @@
 Technical question module
 """
 
+
 def island_perimeter(grid):
     """
     returns the perimeter of the island described in grid
@@ -18,6 +19,5 @@ def island_perimeter(grid):
         p = 4
     else:
         p = (count * 2) + 2
-
 
     return p
