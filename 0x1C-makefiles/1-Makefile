@@ -6,3 +6,14 @@
 # variables: CC, SRC
 # CC: the compiler to be used
 # SRC: the .c files
+
+CC = gcc
+SRC = main.c school.c
+
+school: $(SRC)
+	$(CC) $(SRC) -o school
+
+all: school
+
+clean:
+	rm -f school
