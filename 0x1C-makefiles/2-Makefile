@@ -26,4 +26,4 @@ $(NAME): $(SRC:.c=.o)
 all: $(NAME)
 
 clean:
-	rm -f $(NAME) $(OBJ) 
+	rm -f $(NAME) $(SRC:.c=.o) 
