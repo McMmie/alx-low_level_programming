@@ -18,11 +18,12 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 $(NAME): $(SRC:.c=.o)
-	$(CC) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
