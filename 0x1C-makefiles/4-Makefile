@@ -31,7 +31,7 @@ clean:
 	$(RM) $(NAME) *~
 oclean:
 	$(RM) $(OBJ)
-fclean:
-	clean oclean
-re:
-	oclean all
+
+fclean:	clean oclean
+
+re: oclean all
