@@ -25,7 +25,7 @@ all: m.h $(OBJ)
 clean:
 	$(RM) $(NAME) *~
 oclean:
-	$(RM) $(SRC:.c=.o) 
+	$(RM) $(OBJ) 
 
 fclean:	clean oclean
 
