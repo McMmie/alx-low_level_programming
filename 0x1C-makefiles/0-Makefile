@@ -6,5 +6,8 @@
 # The all rule builds your executable
 # variables: none
 
+school: main.c school.c
+	gcc school.c main.c -o school
+
+
 all: school
-	gcc main.c school.c -o school
