@@ -15,26 +15,26 @@
 
 int binary_search_recursive(int *array, int left, int right, int value)
 {
-    int mid = left + (right - left) / 2;
-    int i = 0;
+	int mid = left + (right - left) / 2;
+	int i = 0;
 
-    if (left > right)
-        return -1; 
+	if (left > right)
+		return (-1);
 
-    printf("Searching in array: ");
-    for (i = left; i <= right; i++)
-    {
-        if (i == right)
-            printf("%d\n", array[i]);
-        else
-            printf("%d, ", array[i]);
-    }
+	printf("Searching in array: ");
+	for (i = left; i <= right; i++)
+	{
+		if (i == right)
+			printf("%d\n", array[i]);
+		else
+			printf("%d, ", array[i]);
+	}
 
-    if (array[mid] == value)
-        return mid;
+	if (array[mid] == value)
+		return (mid);
 
-    if (array[mid] > value)
-        return binary_search_recursive(array, left, mid - 1, value);
+	if (array[mid] > value)
+		return (binary_search_recursive(array, left, mid - 1, value));
 
-    return binary_search_recursive(array, mid + 1, right, value);
+	return (binary_search_recursive(array, mid + 1, right, value));
 }
